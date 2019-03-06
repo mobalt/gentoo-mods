@@ -1,0 +1,12 @@
+<repositories encoding="unicode" version="1.1">
+  <repo priority="99999" quality="experimental" status="unofficial">
+    <name>mobalt</name>
+    <description>Mo's Gentoo Customizations</description>
+    <homepage>https://github.com/mobalt/gentoo-mods</homepage>
+    <owner>
+      <email>m@moisesb.com</email>
+      <name>Moises Baltazar</name>
+    </owner>
+    <source branch="master" type="git">https://github.com/mobalt/gentoo-mods</source>
+  </repo>
+</repositories>
