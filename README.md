@@ -1,18 +1,6 @@
 My Gentoo Customizations
 ==========================
 
-To enable overlay:
-1. verify version - Portage (>= 2.2.14)
-2. create `/etc/portage/repos.conf/mobalt.conf` with contents
-
-```
-[mobalt]
-location = /usr/local/portage/mobalt
-sync-type = git
-sync-uri = https://github.com/mobalt/gentoo-mods.git
-priority=9999
-```
-
 Using Layman
 --------------
 ### To add this unofficial repo
@@ -28,4 +16,18 @@ layman -s mobalt
 All repos at once
 ```
 layman -S
+```
+
+Using just Portage
+--------------------
+To enable overlay:
+1. verify version - Portage (>= 2.2.14)
+2. create `/etc/portage/repos.conf/mobalt.conf` with contents:
+
+```
+[mobalt]
+location = /usr/local/portage/mobalt
+sync-type = git
+sync-uri = https://github.com/mobalt/gentoo-mods.git
+priority=9999
 ```
