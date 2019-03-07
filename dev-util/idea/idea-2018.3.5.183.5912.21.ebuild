@@ -32,20 +32,14 @@ DEPEND="!dev-util/idea-ultimate
 	!dev-util/idea-community"
 RDEPEND="${DEPEND}
 	>=virtual/jdk-1.7:*"
-S="
-community? (
-	custom-jdk? ( ${WORKDIR}/idea-IC-${BUILD_VER} )
-	!custom-jdk? ( ${WORKDIR}/idea-IC-${BUILD_VER} )
-)
-!community? (
-	custom-jdk? ( ${WORKDIR}/idea-IU-${BUILD_VER} )
-	!custom-jdk? ( ${WORKDIR}/idea-IU-${BUILD_VER} )
-)
-"
+S="${WORKDIR}/idea-IU-${BUILD_VER}"
 
 QA_PREBUILT="opt/${PN}-${BUILD_VER}/*"
 
 src_prepare() {
+	if use community; then
+		S="${WORKDIR}/idea-IC-${BUILD_VER}"
+	fi
 	eapply_user
 	if ! use amd64; then
 		rm -r plugins/tfsIntegration/lib/native/linux/x86_64 || die
