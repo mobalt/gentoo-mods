@@ -24,7 +24,7 @@ DESCRIPTION="A complete toolset for web, mobile and enterprise development"
 HOMEPAGE="https://www.jetbrains.com/idea"
 
 LICENSE="
-	!community? ( Commercial )
+	!community? ( IDEA || ( IDEA_Academic IDEA_Classroom IDEA_OpenSource IDEA_Personal ) )
 	community? ( Apache-2.0 )
 	custom-jdk? ( GPL-2 )"
 IUSE="-custom-jdk -community"
