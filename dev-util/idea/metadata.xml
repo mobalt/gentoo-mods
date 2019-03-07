@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+	<name>Moises Baltazar</name>
+	<email>mail@moisesb.com</email>
+</maintainer>
+<longdescription lang="en">
+	An intelligent IDE for Java, Groovy and other programming languages with advanced refactoring features intensely focused on developer productivity.
+</longdescription>
+<use>
+	<flag name="community">Install community version (opensource) instead of professional.</flag>
+	<flag name="custom-jdk">Install and use IntelliJ's custom JRE.</flag>
+</use>
+</pkgmetadata>
