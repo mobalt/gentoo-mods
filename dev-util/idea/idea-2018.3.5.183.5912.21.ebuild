@@ -5,16 +5,18 @@ EAPI=7
 inherit eutils desktop
 
 SLOT="0"
+BUILD_VER="$(ver_cut 4-6)"
+MY_PV="$(ver_cut 1-3)"
 
 KEYWORDS="amd64 ~x86"
 SRC_URI="
 community? (
-	custom-jdk? ( https://download.jetbrains.com/idea/ideaIC-${PV}.tar.gz )
-	!custom-jdk? ( https://download.jetbrains.com/idea/ideaIC-${PV}-no-jdk.tar.gz )
+	custom-jdk? ( https://download.jetbrains.com/idea/ideaIC-${MY_PV}.tar.gz )
+	!custom-jdk? ( https://download.jetbrains.com/idea/ideaIC-${MY_PV}-no-jdk.tar.gz )
 )
 !community? (
-	custom-jdk? ( https://download.jetbrains.com/idea/ideaIU-${PV}.tar.gz )
-	!custom-jdk? ( https://download.jetbrains.com/idea/ideaIU-${PV}-no-jdk.tar.gz )
+	custom-jdk? ( https://download.jetbrains.com/idea/ideaIU-${MY_PV}.tar.gz )
+	!custom-jdk? ( https://download.jetbrains.com/idea/ideaIU-${MY_PV}-no-jdk.tar.gz )
 )
 "
 
@@ -26,13 +28,22 @@ LICENSE="
 	community? ( Apache-2.0 )
 	custom-jdk? ( GPL-2 )"
 IUSE="-custom-jdk -community"
-DEPEND="!dev-util/${PN}:14
-	!dev-util/${PN}:15"
+DEPEND="!dev-util/idea-ultimate
+	!dev-util/idea-community"
 RDEPEND="${DEPEND}
 	>=virtual/jdk-1.7:*"
-S="${WORKDIR}/${MY_PN}-${PV}"
+S="
+community? (
+	custom-jdk? ( ${WORKDIR}/idea-IC-${BUILD_VER} )
+	!custom-jdk? ( ${WORKDIR}/idea-IC-${BUILD_VER} )
+)
+!community? (
+	custom-jdk? ( ${WORKDIR}/idea-IU-${BUILD_VER} )
+	!custom-jdk? ( ${WORKDIR}/idea-IU-${BUILD_VER} )
+)
+"
 
-QA_PREBUILT="opt/${PN}-${PV}/*"
+QA_PREBUILT="opt/${PN}-${BUILD_VER}/*"
 
 src_prepare() {
 	eapply_user
@@ -62,7 +73,7 @@ src_prepare() {
 }
 
 src_install() {
-	local dir="/opt/${PN}-${PV}"
+	local dir="/opt/${PN}-${BUILD_VER}"
 
 	insinto "${dir}"
 	doins -r *
