@@ -12,11 +12,11 @@ KEYWORDS="amd64 ~x86"
 SRC_URI="
 community? (
 	custom-jdk? ( https://download.jetbrains.com/idea/ideaIC-${MY_PV}.tar.gz )
-	!custom-jdk? ( https://download.jetbrains.com/idea/ideaIC-${MY_PV}-no-jdk.tar.gz )
+	!custom-jdk? ( https://download.jetbrains.com/idea/ideaIC-${MY_PV}-no-jbr.tar.gz )
 )
 !community? (
 	custom-jdk? ( https://download.jetbrains.com/idea/ideaIU-${MY_PV}.tar.gz )
-	!custom-jdk? ( https://download.jetbrains.com/idea/ideaIU-${MY_PV}-no-jdk.tar.gz )
+	!custom-jdk? ( https://download.jetbrains.com/idea/ideaIU-${MY_PV}-no-jbr.tar.gz )
 )
 "
 
